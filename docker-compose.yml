@@ -1,0 +1,19 @@
+version: '3'
+services:
+  backend:
+    restart: always
+    image: todo-mvc
+    ports:
+      - 8080:8080
+      - 5005:5005
+    depends_on:
+      - docker-postgres
+
+  docker-postgres:
+    image: postgres:10.4
+    environment:
+      - POSTGRES_DB=todomvc
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5430:5432
