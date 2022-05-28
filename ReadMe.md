@@ -6,7 +6,7 @@
 * some postgres db must be running
 
 ## Postgres through Docker
-Pull the docker image from docker hub: https://hub.docker.com/_/postgres
+Pull the docker image (or simply run it) from docker hub: https://hub.docker.com/_/postgres
 and follow instructions to set it up:
 
     $ docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres

@@ -1,5 +1,7 @@
-package com.example.todomvc;
+package com.example.todomvc.model;
 
+import com.example.todomvc.controller.TodoController;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,5 +25,17 @@ public class TodoItem {
         this.checked = checked;
     }
 
+    @Override
+    public boolean equals(final Object other) {
+        return this == other || other instanceof TodoItem && this.equals((TodoItem) other);
+    }
 
+    private boolean equals(final TodoItem other) {
+        return this.id == other.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, description, checked);
+    }
 }
